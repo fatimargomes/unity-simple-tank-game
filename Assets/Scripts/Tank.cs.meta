@@ -1,0 +1,25 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Tank : MonoBehaviour
+{
+
+    public float moveSpeed = 1.0f;
+    public float rotationSpeed = 1.0f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    protected void Move(float x, float y)
+    {
+        Vector3 fw = new Vector3(0, 0, 1) * Time.deltaTime * moveSpeed * y;
+        transform.Translate(fw);
+
+        float rotation = rotationSpeed * x;
+        transform.Rotate(0, rotation, 0);
+    }
+}
